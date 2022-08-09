@@ -9,13 +9,12 @@ preprocess;
 
 %% Ambiguity detection
 % Contour extraction
-boundary=bwperim(image1,4);	% extract contour using erosion
+contour=bwperim(image1,4);     % extract contour using erosion
 % Feature point detection
-skel=kmm(image);		% thinning using KMM algorithm
+skel=kmm(image);		        % thinning using KMM algorithm
+% Endpoint feature extraction
+endpoints=endpoint(contour);
+feature_plots;
 
 %% Demo
-figure; 
-subplot(1, 2, 1)
-imshow(skel)
-subplot(1, 2, 2)
-imshow(boundary)
+% figure; 
