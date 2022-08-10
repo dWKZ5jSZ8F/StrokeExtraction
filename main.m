@@ -4,7 +4,7 @@ addpath("./utils/")
 
 %% Preprocessing
 path="image/";
-filename="1.bmp";
+filename="6.bmp";
 preprocess;
 
 %% Ambiguity detection
@@ -13,6 +13,7 @@ contour=bwperim(image1,4);     % extract contour using erosion
 % Feature point detection
 skel=kmm(image);		        % thinning using KMM algorithm
 featureExtraction;
+doubleThreshold;
 
 % Endpoint feature extraction
 % endpoints=endpoint(contour);
