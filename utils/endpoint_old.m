@@ -155,7 +155,7 @@ function endpoints=endpoint(contour)
 		% setup threshold of approx. 20 pixels,
 		% [elements] cache with over 20 pixels will be considered as 
 		% large component of the character, thus finding its corner(endpoint).
-		if size(elements, 1) > 50
+		if size(elements, 1) > 20
 			% for loop condition:
 			% b: current labelled pixel, d: distance
 			% A: (B-9)pixel, B: current pixel, C: (B+9)pixel
