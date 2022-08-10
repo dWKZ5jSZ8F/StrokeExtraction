@@ -10,4 +10,4 @@ image=grayscale>(160/255);		% Thresholding
 
 %% Inverting
 image=double(bitxor(image,1));
-image1=image;
+image1=~image;

@@ -1,7 +1,7 @@
 %% Double Threshold method
 % this method is dedicated to detect spurious CFPs (SCFPs)
 SCFP=[];
-N=sum(~skel,'all');		% sum of all foreground pixels
+N=sum(image,'all');		% sum of all foreground pixels
 L=sum(contour,'all');	% total length of contour
 w=2*N/L;
 dl=0.8*w;
@@ -25,10 +25,12 @@ for(i=1:size(CFP,1))
 			cur=[spurs(j,1) spurs(j,2)];
 			prev=[y x];
 			flag=0;
+			isCFP=0;
 			while(1)
 				for(k=1:size(CFP,1))
 					if(cur(1)==CFP(k,1) && cur(2)==CFP(k,2))
 						flag=1;
+						isCFP=1;
 						break
 					end
 				end
@@ -60,12 +62,14 @@ for(i=1:size(CFP,1))
 					end;
 				end
 			end
-			if(Lb<dl)
+			if(Lb<dl && ~isCFP)
 				isSCFP=1;
 				break
 			end
 		end
-		SCFP=vertcat(SCFP,[CFP(i,1) CFP(i,2)]);
+		if(isSCFP)
+			SCFP=vertcat(SCFP,[CFP(i,1) CFP(i,2)]);
+		end
     end
 end 
 
