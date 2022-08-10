@@ -25,16 +25,13 @@ for(i=1:size(CFP,1))
 			cur=[spurs(j,1) spurs(j,2)];
 			prev=[y x];
 			flag=0;
-			test=0;
-			while(test<50)
-				%{
+			while(1)
 				for(k=1:size(CFP,1))
 					if(cur(1)==CFP(k,1) && cur(2)==CFP(k,2))
 						flag=1;
 						break
 					end
 				end
-				%}
 				for(k1=1:size(endpoints,1))
 					if(cur(1)==endpoints(k1,1) && cur(2)==endpoints(k1,2))
 						flag=1;
@@ -55,13 +52,13 @@ for(i=1:size(CFP,1))
 							cur=[q r];
 							Lb=Lb+1;
 							flag1=1;
+							break
 						end
 					end
 					if(flag1)
 						break
 					end;
 				end
-				test=test+1;
 			end
 			if(Lb<dl)
 				isSCFP=1;
