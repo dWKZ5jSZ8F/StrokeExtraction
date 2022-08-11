@@ -4,8 +4,6 @@
 endpoints=[];
 CFP=[];
 skel_ref=padarray(~skel,[1 1],0,'both');
-figure
-imshow(skel_ref);
 for(m=2:size(skel_ref,1)-1)
 	for(n=2:size(skel_ref,2)-1)
 		if(skel_ref(m,n))

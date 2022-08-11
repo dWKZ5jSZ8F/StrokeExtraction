@@ -1,9 +1,9 @@
-endpoints_plot=b2rgb(skel1);
-% plot endpoints with red dots.
-for i = 1:size(endpoints, 1)
-	endpoints_plot(endpoints(i, 1), endpoints(i, 2), 1) = 255;
-	endpoints_plot(endpoints(i, 1), endpoints(i, 2), 2) = 0;
-	endpoints_plot(endpoints(i, 1), endpoints(i, 2), 3) = 0;
+function imout=feature_plots(ft,imin)
+	imout=b2rgb(imin);
+	% plot endpoints with red dots.
+	for i = 1:size(ft, 1)
+		imout(ft(i, 1), ft(i, 2), 1) = 255;
+		imout(ft(i, 1), ft(i, 2), 2) = 0;
+		imout(ft(i, 1), ft(i, 2), 3) = 0;
+	end
 end
-figure
-imshow(endpoints_plot)
