@@ -42,7 +42,7 @@ for(i=1:size(CFP,1))
 				end
 				if(flag)
 					break 
-				end;
+				end
 				tmp1=cur(1); tmp2=cur(2);
 				for(q=tmp1-1:tmp1+1)
 					flag1=0;
@@ -59,7 +59,7 @@ for(i=1:size(CFP,1))
 					end
 					if(flag1)
 						break
-					end;
+                    end
 				end
 			end
 			if(Lb<dl && ~isCFP)
