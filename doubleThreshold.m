@@ -3,7 +3,7 @@
 SCFP=[];
 N=sum(image,'all');		% sum of all foreground pixels
 L=sum(contour,'all');	% total length of contour
-w=2*N/L;
+w=2*N/L; 				% Estimation of stroke width
 dl=0.8*w;
 dh=2.5*w;
 for(i=1:size(CFP,1))
@@ -20,6 +20,7 @@ for(i=1:size(CFP,1))
 				end
 			end
 		end
+		% Loop for 3 candidate branches
 		for(j=1:3)
 			Lb=1;	% initialize the length of branch
 			cur=[spurs(j,1) spurs(j,2)];
@@ -72,4 +73,3 @@ for(i=1:size(CFP,1))
 		end
     end
 end 
-
