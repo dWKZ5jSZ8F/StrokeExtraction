@@ -7,7 +7,8 @@ w=2*N/L; 				% Estimation of stroke width
 dl=0.8*w;
 dh=2.5*w;
 for(i=1:size(CFP,1))
-	if(getNb(~skel,CFP(i,1),CFP(i,2))==3)
+	N=get8Neighbors(~skel,CFP(i,1),CFP(i,2));
+	if(getNb(N)==3)
 		isSCFP=0;
 		y=CFP(i,1); x=CFP(i,2);
 		spurs=[];

@@ -7,6 +7,12 @@ path="image/";
 filename="5.bmp";
 preprocess;
 
+%{
+%% Testing
+thinning;
+figure; imshow(skel);
+%}
+
 %% Ambiguity detection
 % Contour extraction
 contour=bwperim(image,4);     % extract contour using erosion

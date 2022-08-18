@@ -1,5 +1,4 @@
-function fout=getNb(A,m,n)
-	N=get8Neighbors(A,m,n);
+function fout=getNb(N)
 	sm=0;
 	for(i=1:8)
 		sm=sm+N(i);
