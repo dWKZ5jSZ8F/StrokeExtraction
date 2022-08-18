@@ -20,11 +20,13 @@ contour=bwperim(image,4);     % extract contour using erosion
 skel=kmm(image);		        % thinning using KMM algorithm
 % thinning;
 featureExtraction;
-imCFP=feature_plots(CFP,skel);
-imE=feature_plots(endpoints,skel);
+doubleThreshold;
+imCFP=feature_plots(CFP,skel,'R');
+imE=feature_plots(endpoints,skel,'G');
+imSCFP=feature_plots(SCFP,skel,'B');
 figure; imshow(imCFP);
 figure; imshow(imE);
-doubleThreshold;
+figure; imshow(imSCFP);
 
 % Endpoint feature extraction
 % endpoints=endpoint(contour);
