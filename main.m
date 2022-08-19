@@ -28,10 +28,5 @@ figure; imshow(imCFP);
 figure; imshow(imE);
 figure; imshow(imSCFP);
 
-% Endpoint feature extraction
-% endpoints=endpoint(contour);
-% endptConnect;
-% feature_plots;
-
 %% Demo
 % figure; 
