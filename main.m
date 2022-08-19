@@ -4,7 +4,7 @@ addpath("./utils/")
 
 %% Preprocessing
 path="image/";
-filename="5.bmp";
+filename="4.bmp";
 preprocess;
 
 %{
@@ -27,6 +27,9 @@ imSCFP=feature_plots(SCFP,skel,'B');
 figure; imshow(imCFP);
 figure; imshow(imE);
 figure; imshow(imSCFP);
+close all;
+halfThinning;
+figure; imshow(thinned);
 
 %% Demo
 % figure; 

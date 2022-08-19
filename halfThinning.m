@@ -21,7 +21,7 @@ end
 % ··· + p8.
 % i.e. B(p)=getNb(p);
 iter=0;
-while(1)
+while(iter<floor(w/2))
 	% 1st sub-iteration
 	flag1=[];
 	for(m=2:size(im_ref,1)-1)
@@ -76,5 +76,5 @@ while(1)
 	iter=iter+1;
 end
 
-skel=im_ref(2:end-1,2:end-1);
+thinned=im_ref(2:end-1,2:end-1);
 
