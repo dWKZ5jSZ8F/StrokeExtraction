@@ -1,9 +1,6 @@
 %% Double Threshold method
 % this method is dedicated to detect spurious CFPs (SCFPs)
 SCFP=[];
-N=sum(image,'all');		% sum of all foreground pixels
-L=sum(contour,'all');	% total length of contour
-w=2*N/L; 				% Estimation of stroke width
 dl=0.8*w;
 dh=2.5*w;
 for(i=1:size(CFP,1))
