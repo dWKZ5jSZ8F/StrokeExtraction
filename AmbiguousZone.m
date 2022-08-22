@@ -1,7 +1,12 @@
 % Sa is the estimated fork points.
 Sa=[];
 % S2 is the set of true CFP only: S2=Sf-S1
-S2=setdiff(CFP,SCFP,'stable','rows');
+
+if(~isempty(SCFP))
+	S2=setdiff(CFP,SCFP,'stable','rows');
+else
+	S2=CFP;
+end
 im_S2=zeros(size(skel));
 for(pt=1:size(S2,1))
 	im_S2(S2(pt,1),S2(pt,2))=1;
@@ -17,16 +22,22 @@ for(pt1=1:size(S2,1)-1)
 		end
 	end
 end
-display(pair);
+e=[];
 for(i=1:size(S2,1))
+	% WARNING: BUG REMAIN UNSOLVED!
+	% We can't ensure that repeated points won't appear!
 	if(ismember(i,pair))
-		display(i);
+		e=isPairMember(i,pair,e,S2);
+		if(size(e)>=2)
+			coord=sum(e,1)/size(e,1);
+			Sa=vertcat(Sa,[round(coord(1)) round(coord(2))]);		
+		end
+		e=[];
 	else
 		Sa=vertcat(Sa,[S2(i,1) S2(i,2)]);
-		display(Sa);
 	end
 end
-
+% display(Sa);
 
 % Rule 2
 %{
