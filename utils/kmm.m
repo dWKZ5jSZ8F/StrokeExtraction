@@ -1,5 +1,5 @@
 %% KMM Thinning Algorithm
-function skel=kmm(image)
+function skel=kmm(image,type,w)
 	deletionArray = [3      5      7      12     13     14     15     20  ...
 					 21     22     23     28     29     30     31     48     ...
 					 52     53     54     55     56     60     61     62     ...
@@ -25,8 +25,10 @@ function skel=kmm(image)
 			64 0 4; ...
 			32 16 8];
 	change = 1;
+	iter=0;
+	half=round(w/2);
 			
-	while change
+	while(change)
 		outputImage = image > 0;
 		workingImage = image;
 		workingImage = padarray(workingImage, [1 1], 0);
@@ -74,7 +76,12 @@ function skel=kmm(image)
 			end
 		end
 		image = image(2 : end - 1, 2 : end - 1);
-		change = ~all(all(outputImage == (image > 0)));
+		if(type=='n')
+			change = ~all(all(outputImage == (image > 0)));
+		elseif(type=='h')
+			iter=iter+1;
+			change=(iter<half);
+		end
 	end
 	skel=~outputImage;             % Final output by kmm thinning algorithm
 end

@@ -84,5 +84,5 @@ function fout=thinning(image,type,w)
 		end
 	end
 
-	fout=im_ref(2:end-1,2:end-1);
+	fout=~im_ref(2:end-1,2:end-1);
 end
