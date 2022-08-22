@@ -21,6 +21,14 @@ flowchart TD
         G[Stroke path searching] --> H[B-spline interpolation];
     end   
 ```
+## How to run
+Under main.m...
+1. Import your input image into "./image/", and modify the `filename` variable.
+2. Run preprocess.m to produce binarized image.
+3. Find `contour` and `skel` of image.
+4. Run featureExtraction.m to find junction points (CFPs).
+5. Run doubleThreshold.m to eliminated SCFPs.
+6. Find `halfthinned` with kmm and run ambiguousZone.m to emerged potential distorted fork points. 
 
 
 ## Reference
