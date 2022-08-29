@@ -21,15 +21,10 @@ featureExtraction;
 doubleThreshold;
 % Ambiguous zone identification
 halfthinned=kmm(image,'h',w);
+CFPcorrection;
 ambiguousZone;
 
 %% Demo
-imCFP=feature_plots(CFP,skel,'R');
-% display(CFP);
-% figure; imshow(imCFP);
-im_Sa=feature_plots(Sa,skel,'R');
-% display(Sa);
-% figure; imshow(im_Sa);
-% imwrite(imCFP,o_path+"CFP.png");
-% imwrite(im_Sa,o_path+"Sa.png");
-%close all;
+im_V=feature_plots(V,contour,'R');
+figure;imshow(contour);
+figure;imshow(im_V);

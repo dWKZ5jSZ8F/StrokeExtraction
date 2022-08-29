@@ -11,9 +11,10 @@ function imout=feature_plots(ft,imin,args)
 	elseif(args=='B')
 		B=255;
 	end
+	r=0;
 	for i = 1:size(ft, 1)
-		for(row=ft(i,1)-1:ft(i,1)+1)
-			for(col=ft(i,2)-1:ft(i,2)+1)
+		for(row=ft(i,1)-r:ft(i,1)+r)
+			for(col=ft(i,2)-r:ft(i,2)+r)
 				imout(row,col,1) = R;
 				imout(row,col,2) = G;
 				imout(row,col,3) = B;

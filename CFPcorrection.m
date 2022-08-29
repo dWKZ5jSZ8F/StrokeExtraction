@@ -26,15 +26,16 @@ e=[];
 for(i=1:size(S2,1))
 	% WARNING: BUG REMAIN UNSOLVED!
 	% We can't ensure that repeated points won't appear!
+	% TODO: Fork point correction.
 	if(ismember(i,pair))
 		e=isPairMember(i,pair,e,S2);
-		if(size(e)>=2)
+		if(size(e,1)>=2)
 			coord=sum(e,1)/size(e,1);
-			Sa=vertcat(Sa,[round(coord(1)) round(coord(2))]);		
+			Sa=vertcat(Sa,[round(coord(1)) round(coord(2)) size(e,1)]);		
 		end
 		e=[];
 	else
-		Sa=vertcat(Sa,[S2(i,1) S2(i,2)]);
+		Sa=vertcat(Sa,[S2(i,1) S2(i,2) 0]);
 	end
 end
 % display(Sa);
