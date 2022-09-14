@@ -8,7 +8,7 @@ filename="5.bmp";
 o_path="output/";
 preprocess;
 
-%% Ambiguity detection
+%% Ambiguity Detection
 % Contour extraction
 contour=bwperim(image,4);     % extract contour using erosion
 % Feature point detection
@@ -22,9 +22,12 @@ doubleThreshold;
 % Ambiguous zone identification
 halfthinned=kmm(image,'h',w);
 CFPcorrection;
+display(Sa);
+display(S2);
 ambiguousZone;
 
+%% Stroke Extraction
+
 %% Demo
-im_V=feature_plots(V,contour,'R');
-figure;imshow(contour);
-figure;imshow(im_V);
+% im_V=feature_plots(V,contour,'R');
+%kfigure;imshow(im_V);
