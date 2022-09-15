@@ -1,17 +1,16 @@
-function imout=feature_plots(ft,imin,args)
+function imout=feature_plots(ft,imin,color,r)
 	imout=b2rgb(imin);
-	% plot endpoints with red dots.
+	% plot endpoints with colored dots.
 	R=0;
 	G=0;
 	B=0;
-	if(args=='R')
+	if(color=='R')
 		R=255;
-	elseif(args=='G')
+	elseif(color=='G')
 		G=255;
-	elseif(args=='B')
+	elseif(color=='B')
 		B=255;
 	end
-	r=0;
 	for i = 1:size(ft, 1)
 		for(row=ft(i,1)-r:ft(i,1)+r)
 			for(col=ft(i,2)-r:ft(i,2)+r)

@@ -4,7 +4,7 @@ addpath("./utils/")
 
 %% Preprocessing
 path="image/";
-filename="5.bmp";
+filename="6.bmp";
 o_path="output/";
 preprocess;
 
@@ -25,9 +25,11 @@ CFPcorrection;
 display(Sa);
 display(S2);
 ambiguousZone;
+SPWT;
 
 %% Stroke Extraction
 
 %% Demo
 % im_V=feature_plots(V,contour,'R');
-%kfigure;imshow(im_V);
+% figure;imshow(im_V);
+% figure;imshow(image);
