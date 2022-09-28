@@ -5,6 +5,8 @@ classdef dlnode < handle
       Data
    end
    properties(SetAccess = private)
+	  Row
+	  Col
       Next = dlnode.empty
       Prev = dlnode.empty
    end
@@ -73,6 +75,14 @@ classdef dlnode < handle
             removeNode(node)
          end
       end
+
+	  function addRow(node,pos)
+		 node.Row=pos;
+	  end
+
+	  function addCol(node,pos)
+		 node.Col=pos;
+	  end
    end
    
    methods (Access = private)

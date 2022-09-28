@@ -38,7 +38,6 @@ for(i=1:size(S2,1))
 		Sa=vertcat(Sa,[S2(i,1) S2(i,2) 0]);
 	end
 end
-% display(Sa);
 
 % Rule 2
 %{

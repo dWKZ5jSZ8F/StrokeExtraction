@@ -1,10 +1,11 @@
-clc; clear;
-addpath("./image/")
-addpath("./utils/")
+clc; clear; close all;
+addpath("./image/");
+addpath("./class/");
+addpath("./utils/");
 
 %% Preprocessing
 path="image/";
-filename="6.bmp";
+filename="5.bmp";
 o_path="output/";
 preprocess;
 
@@ -22,8 +23,9 @@ doubleThreshold;
 % Ambiguous zone identification
 halfthinned=kmm(image,'h',w);
 CFPcorrection;
-display(Sa);
-display(S2);
+%%
+contourFollowing;
+%{
 ambiguousZone;
 SPWT;
 
@@ -33,3 +35,4 @@ SPWT;
 % im_V=feature_plots(V,contour,'R');
 % figure;imshow(im_V);
 % figure;imshow(image);
+%}

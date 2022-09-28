@@ -1,5 +1,9 @@
 function imout=feature_plots(ft,imin,color,r)
-	imout=b2rgb(imin);
+	if(isa(imin,'logical'))
+		imout=b2rgb(imin);
+	else
+		imout=imin;
+	end
 	% plot endpoints with colored dots.
 	R=0;
 	G=0;
