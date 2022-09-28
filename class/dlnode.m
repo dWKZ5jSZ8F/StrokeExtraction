@@ -76,12 +76,14 @@ classdef dlnode < handle
          end
       end
 
-	  function addRow(node,pos)
-		 node.Row=pos;
+	  function addPos(node,row,col)
+		 node.Row=row;
+		 node.Col=col;
 	  end
-
-	  function addCol(node,pos)
-		 node.Col=pos;
+	  
+	  function insertCircular(tail,head)
+		 head.Prev=tail;
+		 tail.Next=head;
 	  end
    end
    

@@ -12,6 +12,7 @@ preprocess;
 %% Ambiguity Detection
 % Contour extraction
 contour=bwperim(image,4);     % extract contour using erosion
+contourFollowing;
 % Feature point detection
 N=sum(image,'all');		% sum of all foreground pixels
 L=sum(contour,'all');	% total length of contour
@@ -23,8 +24,6 @@ doubleThreshold;
 % Ambiguous zone identification
 halfthinned=kmm(image,'h',w);
 CFPcorrection;
-%%
-contourFollowing;
 %{
 ambiguousZone;
 SPWT;
