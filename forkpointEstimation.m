@@ -23,6 +23,8 @@ for(pt1=1:size(S2,1)-1)
 	end
 end
 e=[];
+forkpoint=1;
+zone(forkpoint) = {NaN(1, 2)};
 for(i=1:size(S2,1))
 	% WARNING: BUG REMAIN UNSOLVED!
 	% We can't ensure that repeated points won't appear!
@@ -31,11 +33,18 @@ for(i=1:size(S2,1))
 		e=isPairMember(i,pair,e,S2);
 		if(size(e,1)>=2)
 			coord=sum(e,1)/size(e,1);
-			Sa=vertcat(Sa,[round(coord(1)) round(coord(2)) size(e,1)]);		
+			Sa=vertcat(Sa,[round(coord(1)) round(coord(2)) forkpoint]);		
+			zone(forkpoint) = {[e(1,1) e(1,2)]};
+			for(j=2:size(e, 1))
+				zone{forkpoint} = vertcat(zone{forkpoint}, [e(j,1) e(j,2)]);
+			end
+			forkpoint=forkpoint+1;
 		end
 		e=[];
 	else
-		Sa=vertcat(Sa,[S2(i,1) S2(i,2) 0]);
+		Sa=vertcat(Sa,[S2(i,1) S2(i,2) forkpoint]);
+		zone(forkpoint) = {[S2(i,1) S2(i,2)]};
+		forkpoint=forkpoint+1;
 	end
 end
 

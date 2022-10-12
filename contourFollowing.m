@@ -1,3 +1,4 @@
+contour=image;
 [H,W] = size(contour);
 
 %% Source image display
@@ -48,7 +49,7 @@ contour(row_idx0,col_idx0) = 1; % set back true value of initial point
 Contour1(row_idx1,col_idx1) = 1;
 dir = dir0; % update dir
 
-%% Coding other contour points
+%% Coding other image points
 row_idx2 = row_idx1; % 2nd temporary value
 col_idx2 = col_idx1;
 i = 2;

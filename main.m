@@ -11,8 +11,9 @@ preprocess;
 
 %% Ambiguity Detection
 % Contour extraction
-contour=bwperim(image,4);     % extract contour using erosion
+%contour=bwperim(image,4);     % extract contour using erosion
 contourFollowing;
+contour=bwperim(image,4);
 % Feature point detection
 N=sum(image,'all');		% sum of all foreground pixels
 L=sum(contour,'all');	% total length of contour
@@ -23,15 +24,11 @@ featureExtraction;
 doubleThreshold;
 % Ambiguous zone identification
 halfthinned=kmm(image,'h',w);
-CFPcorrection;
-%{
+forkpointEstimation;
+display(S2)
+display(Sa)
 ambiguousZone;
-SPWT;
 
 %% Stroke Extraction
 
 %% Demo
-% im_V=feature_plots(V,contour,'R');
-% figure;imshow(im_V);
-% figure;imshow(image);
-%}
